@@ -18,7 +18,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     // this var gives us acces to location, so we can do some work with it later
-    var locationManager = CLLocationManager()
+    var location3 = CLLocationManager()
     
     // this variable will allow as later to control the locati on map update.
     var updateCount = 0
@@ -27,7 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        locationManager.delegate = self
+        location3.delegate = self
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             print("ready to go")
@@ -35,11 +35,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             // this code gives your current location
             
-            locationManager.startUpdatingLocation()
+            location3.startUpdatingLocation()
             
             
         } else {
-            locationManager.requestWhenInUseAuthorization()
+            location3.requestWhenInUseAuthorization()
         }
         
         
@@ -51,15 +51,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("we made it")
         
-        if updateCount < 7 {
+        if updateCount < 4{
         
         // this region constant takes your curent location, and then u set up how much the map should be zoomed in
-        let region = MKCoordinateRegionMakeWithDistance(locationManager.location!.coordinate, 1000, 1000)
+        let region = MKCoordinateRegionMakeWithDistance(location3.location!.coordinate, 400, 400)
         
         // this sshows your current location on map zoomed in when app is lunched
         mapView.setRegion(region, animated: false)
             
             updateCount += 1
+        } else {
+            location3.stopUpdatingLocation()
         }
     }
     
@@ -72,5 +74,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 
+    // this code will grab our location and center the map
+    @IBAction func locationFocusTapped(_ sender: Any) {
+        
+        // the if statement prevents from running the code if the location is unknown
+        if let coord = location3.location?.coordinate {
+        let region = MKCoordinateRegionMakeWithDistance(coord, 400, 400)
+        mapView.setRegion(region, animated: true)
+        
+        }
+    }
+    
 }
 

@@ -14,6 +14,7 @@
 		84F44DAC1E9816FA004B6117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F44DAB1E9816FA004B6117 /* Assets.xcassets */; };
 		84F44DAF1E9816FA004B6117 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F44DAD1E9816FA004B6117 /* LaunchScreen.storyboard */; };
 		84F44DB81E98186D004B6117 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F44DB71E98186D004B6117 /* MapKit.framework */; };
+		84F44DBA1E9823D1004B6117 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F44DB91E9823D1004B6117 /* compass.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		84F44DAE1E9816FA004B6117 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84F44DB01E9816FA004B6117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F44DB71E98186D004B6117 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		84F44DB91E9823D1004B6117 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				84F44DA31E9816FA004B6117 /* ViewController.swift */,
 				84F44DA51E9816FA004B6117 /* Main.storyboard */,
 				84F44DAB1E9816FA004B6117 /* Assets.xcassets */,
+				84F44DB91E9823D1004B6117 /* compass.png */,
 				84F44DAD1E9816FA004B6117 /* LaunchScreen.storyboard */,
 				84F44DB01E9816FA004B6117 /* Info.plist */,
 				84F44DA81E9816FA004B6117 /* pokemon.xcdatamodeld */,
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F44DBA1E9823D1004B6117 /* compass.png in Resources */,
 				84F44DAF1E9816FA004B6117 /* LaunchScreen.storyboard in Resources */,
 				84F44DAC1E9816FA004B6117 /* Assets.xcassets in Resources */,
 				84F44DA71E9816FA004B6117 /* Main.storyboard in Resources */,
