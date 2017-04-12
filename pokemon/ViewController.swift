@@ -143,6 +143,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
+    // this funcion lets us tap on annotaions (pins / pokmons)
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        mapView.deselectAnnotation(view.annotation, animated: true)
+        
+        // this prevents from tapping on the trainer/( blue dot)
+        if view.annotation is MKUserLocation {
+            return
+        }
+        
+        // in this line of ocde when the pokemon is tapped the map centers around it.
+        let region = MKCoordinateRegionMakeWithDistance(view.annotation!.coordinate, 200, 200)
+        mapView.setRegion(region, animated: true)
+        
+        // this like will check if the trainer (blue dot) is witihn the map rectangle of the pokemon (pin), if yes then we can catch the pokemon, if not then we cant
+        if let coord2 = location3.location?.coordinate {
+            if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coord2)) {
+                print("can catch a pokemon")
+            } else {
+                print("pokemon is to far")
+            }
+        }
+    }
+    
     
     
 
