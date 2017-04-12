@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     
     @IBOutlet weak var mapView: MKMapView!
@@ -23,14 +23,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // this variable will allow as later to control the locati on map update.
     var updateCount = 0
     
+    
+    var pokemons3 : [Pokemon] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        pokemons3 = getAllPokemon4()
+        
         location3.delegate = self
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            print("ready to go")
+            
+            mapView.delegate = self
+            
             mapView.showsUserLocation = true
             
             // this code gives your current location
@@ -67,11 +75,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    //this functions gets called when the anotation is about to get called, here we can change the pin to our image
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        // this line works with the blue dot that shows your location
+        if annotation is MKUserLocation {
+            
+            
+            let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            
+            annoView.image = UIImage(named: "player")
+            
+            var frame = annoView.frame
+            
+            frame.size.height = 40
+            frame.size.width = 40
+            
+            annoView.frame = frame
+            
+            return annoView
+        }
+        
+        // this code here replaced the pin with picture
+        
+        let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        
+        annoView.image = UIImage(named: "mew")
+        
+        var frame = annoView.frame
+        
+        frame.size.height = 30
+        frame.size.width = 30
+        
+        annoView.frame = frame
+        
+        return annoView
+    }
+    
     
     //this function tell the delegate that the location was updated, and that there is a new location avaliable
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("we made it")
+    
         
         if updateCount < 4{
         
