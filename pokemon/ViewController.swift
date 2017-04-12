@@ -37,47 +37,60 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             
-            mapView.delegate = self
-            
-            mapView.showsUserLocation = true
-            
-            // this code gives your current location
-            
-            location3.startUpdatingLocation()
-            
-            
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
-                // this code gets run every 5 second, or what ever is set to:
-                
-                if let coord = self.location3.location?.coordinate {
-                
-                    
-                    // this takes a random pokemonf from an array of pokemons from above
-                    let pokemon789 = self.pokemons3[Int(arc4random_uniform(UInt32(self.pokemons3.count)))]
-                    
-                    //let anno = MKPointAnnotation() // this created anotation object
-                    // this replaced the above constant object
-                let anno = PokeAnnotation(coord: coord, pokemone: pokemon789)
-                    
-                    
-                    //this two constants create random number that gets added to the latitude and longitude
-                    let randoLat = (Double(arc4random_uniform(200)) - 100.0 ) / 50000.0
-                    let randoLon = (Double(arc4random_uniform(200)) - 100.0 ) / 50000.0
-                    
-                    // this adds the random numbers to the location
-                    anno.coordinate.latitude += randoLat
-                    anno.coordinate.longitude += randoLon
-                    
-                    // this adds a pin in the random location that was generated above
-                 self.mapView.addAnnotation(anno)
-                }
-            })
-            
+            setUp()
             
         } else {
             location3.requestWhenInUseAuthorization()
         }
         
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            setUp()
+        }
+    }
+    
+    
+    func setUp(){
+        
+        mapView.delegate = self
+        
+        mapView.showsUserLocation = true
+        
+        // this code gives your current location
+        
+        location3.startUpdatingLocation()
+        
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+            // this code gets run every 5 second, or what ever is set to:
+            
+            if let coord = self.location3.location?.coordinate {
+                
+                
+                // this takes a random pokemonf from an array of pokemons from above
+                let pokemon789 = self.pokemons3[Int(arc4random_uniform(UInt32(self.pokemons3.count)))]
+                
+                //let anno = MKPointAnnotation() // this created anotation object
+                // this replaced the above constant object
+                let anno = PokeAnnotation(coord: coord, pokemone: pokemon789)
+                
+                
+                //this two constants create random number that gets added to the latitude and longitude
+                let randoLat = (Double(arc4random_uniform(200)) - 100.0 ) / 50000.0
+                let randoLon = (Double(arc4random_uniform(200)) - 100.0 ) / 50000.0
+                
+                // this adds the random numbers to the location
+                anno.coordinate.latitude += randoLat
+                anno.coordinate.longitude += randoLon
+                
+                // this adds a pin in the random location that was generated above
+                self.mapView.addAnnotation(anno)
+            }
+        })
+
         
     }
     
@@ -222,10 +235,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 
                 //here were gone create an alert to let the user know that his to far from the pokemon to cathc it
                 
-                
+                //"\(pokemon.name!)"
                 
                 // first create the alert object
-                let alertVC = UIAlertController(title: "EE TY", message: "\(pokemon.name!) ci spier**l", preferredStyle: .alert)
+                let alertVC = UIAlertController(title: "EE TY", message: "Pokemon ci spier**l", preferredStyle: .alert)
                 
                 // create buttons to the alert
                 
