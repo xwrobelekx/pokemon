@@ -50,9 +50,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 // this code gets run every 5 second, or what ever is set to:
                 
                 if let coord = self.location3.location?.coordinate {
-                let anno = MKPointAnnotation() // this created anotation object
                 
-                anno.coordinate = coord
+                    
+                    // this takes a random pokemonf from an array of pokemons from above
+                    let pokemon789 = self.pokemons3[Int(arc4random_uniform(UInt32(self.pokemons3.count)))]
+                    
+                    //let anno = MKPointAnnotation() // this created anotation object
+                    // this replaced the above constant object
+                let anno = PokeAnnotation(coord: coord, pokemone: pokemon789)
+                    
                     
                     //this two constants create random number that gets added to the latitude and longitude
                     let randoLat = (Double(arc4random_uniform(200)) - 100.0 ) / 50000.0
@@ -84,6 +90,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             
+          
+            
             annoView.image = UIImage(named: "player")
             
             var frame = annoView.frame
@@ -100,7 +108,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         let annoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         
-        annoView.image = UIImage(named: "mew")
+        let pokemon123 = (annotation as! PokeAnnotation).pokemone456
+        
+        
+        annoView.image = UIImage(named: pokemon123.imageName!)
         
         var frame = annoView.frame
         

@@ -17,6 +17,7 @@
 		84F44DBA1E9823D1004B6117 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F44DB91E9823D1004B6117 /* compass.png */; };
 		84F44DD71E9C1E96004B6117 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F44DD61E9C1E96004B6117 /* PokedexViewController.swift */; };
 		84F44DD91E9C67DD004B6117 /* CoreDataHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F44DD81E9C67DD004B6117 /* CoreDataHelp.swift */; };
+		84F44DDD1E9E7E80004B6117 /* pokeAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F44DDC1E9E7E80004B6117 /* pokeAnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		84F44DB91E9823D1004B6117 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 		84F44DD61E9C1E96004B6117 /* PokedexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
 		84F44DD81E9C67DD004B6117 /* CoreDataHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelp.swift; sourceTree = "<group>"; };
+		84F44DDC1E9E7E80004B6117 /* pokeAnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pokeAnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				84F44DA31E9816FA004B6117 /* ViewController.swift */,
 				84F44DD61E9C1E96004B6117 /* PokedexViewController.swift */,
 				84F44DD81E9C67DD004B6117 /* CoreDataHelp.swift */,
+				84F44DDC1E9E7E80004B6117 /* pokeAnotation.swift */,
 				84F44DA51E9816FA004B6117 /* Main.storyboard */,
 				84F44DAB1E9816FA004B6117 /* Assets.xcassets */,
 				84F44DB91E9823D1004B6117 /* compass.png */,
@@ -163,6 +166,7 @@
 			files = (
 				84F44DA41E9816FA004B6117 /* ViewController.swift in Sources */,
 				84F44DD71E9C1E96004B6117 /* PokedexViewController.swift in Sources */,
+				84F44DDD1E9E7E80004B6117 /* pokeAnotation.swift in Sources */,
 				84F44DA21E9816FA004B6117 /* AppDelegate.swift in Sources */,
 				84F44DD91E9C67DD004B6117 /* CoreDataHelp.swift in Sources */,
 				84F44DAA1E9816FA004B6117 /* pokemon.xcdatamodeld in Sources */,
