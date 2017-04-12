@@ -157,13 +157,91 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let region = MKCoordinateRegionMakeWithDistance(view.annotation!.coordinate, 200, 200)
         mapView.setRegion(region, animated: true)
         
+        
+        // were puting timer to give the code time to zoom in to the pokemon location before it determines if we can catch it or not
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) {(timer) in
+            
+        
+        
         // this like will check if the trainer (blue dot) is witihn the map rectangle of the pokemon (pin), if yes then we can catch the pokemon, if not then we cant
-        if let coord2 = location3.location?.coordinate {
+        if let coord2 = self.location3.location?.coordinate {
+            
+            // first we create pokemon object, which is pulling that information from the anotation that was tapped
+            let pokemon = (view.annotation! as! PokeAnnotation).pokemone456
+            
             if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(coord2)) {
-                print("can catch a pokemon")
+                
+                
+                // this code lets you catch the pokemon
+                
+               
+                
+                // here were changing its bulean value to true
+                
+                pokemon.caught = true
+                
+                // save to core data
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                // to remove cought pokemon from map
+                mapView.removeAnnotation(view.annotation!)
+                
+                
+                //here were gone create an alert to let the user know that his to far from the pokemon to cathc it
+                
+                
+                // first create the alert object
+                let alertVC = UIAlertController(title: "EE TY", message: "Zlapales \(pokemon.name!), byles szybszy od skubanca", preferredStyle: .alert)
+                
+                // this is a button to show the cought pokemon
+                let pokedexAction = UIAlertAction(title: "pokedex", style: .default, handler: { (action) in
+                    
+                    // when pokedex button is pressed it trigures a segue to show th cought pokemons
+                    self.performSegue(withIdentifier: "pokedexSegues", sender: nil)
+                
+                })
+                
+                alertVC.addAction(pokedexAction)
+                
+                
+                // create buttons to the alert
+                
+                let OKaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                
+                // add action to the alert
+                
+                alertVC.addAction(OKaction)
+                
+                // present the view controller
+                
+                self.present(alertVC, animated: true, completion: nil)
+                
+                
+                
             } else {
-                print("pokemon is to far")
+                
+                //here were gone create an alert to let the user know that his to far from the pokemon to cathc it
+                
+                
+                
+                // first create the alert object
+                let alertVC = UIAlertController(title: "EE TY", message: "\(pokemon.name!) ci spier**l", preferredStyle: .alert)
+                
+                // create buttons to the alert
+                
+                let OKaction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                
+                // add action to the alert
+                
+                alertVC.addAction(OKaction)
+                
+                // present the view controller
+                
+                self.present(alertVC, animated: true, completion: nil)
+                
+                
             }
+        }
         }
     }
     
