@@ -22,6 +22,20 @@ func adAllPokemon() {
     createPokemon(name: "Snorlax", imageName: "snorlax")
     createPokemon(name: "Weedle", imageName: "weedle")
     createPokemon(name: "Zubat", imageName: "zubat")
+    createPokemon(name: "Instinct", imageName: "instinct")
+    createPokemon(name: "Dratini", imageName: "dratini")
+    createPokemon(name: "Jigglypuff", imageName: "jigglypuff")
+    createPokemon(name: "Psyduck", imageName: "psyduck")
+    createPokemon(name: "Squirtle", imageName: "squirtle")
+    createPokemon(name: "Valor", imageName: "valor")
+    createPokemon(name: "Venonat", imageName: "venonat")
+    createPokemon(name: "Charmander", imageName: "charmander")
+    createPokemon(name: "Caterpie", imageName: "caterpie")
+    createPokemon(name: "Bullbasaur", imageName: "bullbasaur")
+    createPokemon(name: "Bellsprout", imageName: "bellsprout")
+    createPokemon(name: "Abra", imageName: "abra")
+   
+    
   
     print("byles tu?????")
     
